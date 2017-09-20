@@ -12,6 +12,18 @@
           {{ test.myString | capitalize }}
         </h2>
       </div>
+      <div ng-controller="TestCtrl2 as test2">
+        <p>Search name:</p>
+        <input type="text" ng-model="search.name"/>
+        <p ng-repeat="person in test2.people | filter: search">
+          {{ person.name }}
+        </p>
+        <p>Search name and born in:</p>
+        <input type="text" ng-model="search2.$"/>
+        <p ng-repeat="person in test2.people | filter: search2">
+          {{ person.name }} born in {{ person.born }}
+        </p>
+      </div>
     </div>
   </body>
 </html>
