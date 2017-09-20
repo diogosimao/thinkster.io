@@ -24,6 +24,15 @@
           {{ person.name }} born in {{ person.born }}
         </p>
       </div>
+      <div ng-controller="FilterController as ctrl">
+        <div>
+          All entries:
+          <span ng-repeat="entry in ctrl.array"> {{ entry.name }} </span>
+        </div>
+        <div>
+          Entries that contain an "a":
+          <span ng-repeat="entry in ctrl.filteredArray"> {{ entry.name }} </span>
+        </div>
     </div>
   </body>
 </html>

@@ -30,5 +30,16 @@ function TestCtrl2() {
 angular.module('app', [])
 .controller('TestCtrl', TestCtrl)
 .controller('TestCtrl2', TestCtrl2)
+.controller('FilterController', ['filterFilter', function FilterController(filterFilter) {
+  this.array = [
+    {name: 'Tobias'},
+    {name: 'Jeff'},
+    {name: 'Brian'},
+    {name: 'Igor'},
+    {name: 'James'},
+    {name: 'Brad'}
+  ];
+  this.filteredArray = filterFilter(this.array, 'a');
+}])
 .filter('capitalize', CapitalizerFilter);
 
