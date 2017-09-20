@@ -2,6 +2,7 @@ angular.module('greetings', [])
 .directive("welcome", function() {
   return {
     restrict: "E",
+    scope: {},
     controller: function($scope) {
       $scope.words = [];
 
