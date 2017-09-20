@@ -13,9 +13,9 @@
         </h2>
       </div>
       <div ng-controller="TestCtrl2 as test2">
-        <p>Search name:</p>
+        <p>Search limit 2 ordered by name:</p>
         <input type="text" ng-model="search.name"/>
-        <p ng-repeat="person in test2.people | filter: search">
+        <p ng-repeat="person in test2.people | filter: search | orderBy:'name' | limitTo: 2">
           {{ person.name }}
         </p>
         <p>Search name and born in:</p>
