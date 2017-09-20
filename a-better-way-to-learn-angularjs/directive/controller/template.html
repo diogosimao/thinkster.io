@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AngularJS Binding</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+    <script type="text/javascript" src="functionalities.js"></script>
+  </head>
+  <body ng-app="functionalities" ng-controller="FunCtrl as fun">
+    <div entering="fun.start()" leaving="fun.end()">
+      Hover over me for fun times.
+    </div>
+  </body>
+</html>
