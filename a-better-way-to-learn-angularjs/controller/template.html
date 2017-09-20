@@ -10,9 +10,12 @@
       <h1>Controllers</h1>
       <div ng-controller="MainCtrl as main">
         <p ng-bind="main.message"></p>
-        <form ng-submit="main.changeMessage(main.newMessage)">
-          <input type="text" ng-model="main.newMessage">
-          <button type="submit">Change Message</button>
+        <form name="form" ng-submit="main.changeMessage(main.newMessage)">
+          <input name="message" type="text" ng-model-options="{ updateOn: 'mousedown blur' }" ng-model="main.newMessage" required>
+          <div ng-show="form.$submitted || form.message.$touched">
+            <div ng-show="form.message.$error.required">Please, send a message.</div>
+          </div>
+          <br/><button type="submit">Change Message</button>
         </form>
       </div>
     </div>

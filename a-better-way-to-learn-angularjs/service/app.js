@@ -1,4 +1,4 @@
-angular.module('app', []);
+var app = angular.module('app', []);
 
 angular.module('app').factory('messages', function(){
   var messages = {};
@@ -12,13 +12,13 @@ angular.module('app').factory('messages', function(){
   return messages;
 });
 
-angular.module('app').controller('ListCtrl', function(messages){
+app.controller('ListCtrl', function(messages){
   var self = this;
 
   self.messages = messages.list;
 });
 
-angular.module('app').controller('PostCtrl', function(messages){
+app.controller('PostCtrl', function(messages){
   var self = this;
 
   self.newMessage = 'Hello World';
@@ -28,7 +28,7 @@ angular.module('app').controller('PostCtrl', function(messages){
   }
 });
 
-angular.module('app').filter('trustAsHtml', ['$sce', function($sce) {
+app.filter('trustAsHtml', ['$sce', function($sce) {
   return function(text) {
     return $sce.trustAsHtml(text);
   };
