@@ -1,6 +1,9 @@
 ;(function(window) {
 
 angular.module('app', [])
+.controller('AppCtrl', function($scope){
+  $scope.ctrlDisable = "true";
+})
 .directive('tabset', function(){
   return{
     restrict: 'E',
