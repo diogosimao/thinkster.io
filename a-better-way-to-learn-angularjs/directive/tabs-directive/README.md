@@ -1,0 +1,1 @@
+https://thinkster.io/angular-tabs-directive
