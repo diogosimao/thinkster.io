@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+  </head>
+  <body>
+    <div ng-app="app" ng-controller="appController">
+      <div class="button" ng-repeat="item in temp.split('') track by $index" ng-click="$log.debug($event)">
+        {{ $index + 1 }}. {{ item }}
+      </div>
+    </div>
+  </body>
+</html>  
