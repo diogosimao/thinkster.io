@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="app.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular-animate.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body ng-app="app" ng-controller="TestCtrl as test">
+    <button ng-click="test.showBoxOne = !test.showBoxOne">Toggle Box One</button>
+    <div class="box-one" ng-show="test.showBoxOne"> Hello! I am <b>box one</b>
+    </div>
+  </body>
+</html>
