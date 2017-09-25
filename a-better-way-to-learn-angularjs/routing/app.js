@@ -1,19 +1,27 @@
 var app = angular.module('app', [ 'ngRoute' ]);
 
 app.config(function($routeProvider){
-  $routeProvider.when("/:firstName/:middleName/:lastName", {
+  $routeProvider.when("/", {
     templateUrl: "app.html",
     controller: "AppCtrl",
     controllerAs: "app"
   })
-  .when('/cookies', {
-    template: "NOM NOM NOM NOM"
+  .when('/cookies/:cookieType', {
+    redirectTo: function(routeParams, path, search) {
+      console.log(routeParams);
+      console.log(path);
+      console.log(search);
+      return "/" + routeParams.cookieType;
+    }
+  })
+  .when("/sugar",{
+    template: "Sugar cookie."
   })
   .otherwise({
-    template: "This route isn't set!"
+    redirectTo: "/"
   });
 })
 .controller('AppCtrl', function($routeParams) {
   var self = this;
-  self.message = $routeParams.firstName + " " + $routeParams.middleName + " " + $routeParams.lastName;
+  self.message = "The app routing is working";
 });
