@@ -5,6 +5,14 @@ function testService($http) {
         return res.data.message;
     })
   }
+
+  this.upperCase = function(data){
+    return $http.post('http://test-routes.herokuapp.com/test/uppercase', data)
+      .then(function(res) {
+        return res.data.message;
+      })
+
+  }
 }
 
 function TestCtrl(testService) {
@@ -15,6 +23,13 @@ function TestCtrl(testService) {
       .then(function(message) {
         self.message = message;
     })
+  }
+
+  self.postData = function(message) {
+    testService.upperCase({message: message})
+      .then(function(message) {
+        self.message = message;
+      })
   }
 }
 
