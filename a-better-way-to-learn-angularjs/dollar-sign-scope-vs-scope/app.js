@@ -4,7 +4,8 @@ angular.module('app', [])
 })
 .directive('testDirective', function(){
   return {
-    link: function(scope) {
+    scope: {},
+    link: function(attr, elem, scope) {
       console.log(scope)
     }
   }
