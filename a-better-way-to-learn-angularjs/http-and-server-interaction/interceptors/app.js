@@ -1,6 +1,9 @@
 function testInterceptors() {
   return {
     request: function(config) {
+      if (config.url.indexOf('http://test-routes.herokuapp.com') > -1 ) {
+        config.headers['x-csrf-token'] = 'lalalalala';
+      }
       return config;
     },
 
