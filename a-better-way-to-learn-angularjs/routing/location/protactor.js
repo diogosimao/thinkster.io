@@ -1,48 +1,9 @@
-var addressBar = element(by.css("#addressBar")),
-    url = 'http://www.example.com/base/path?a=b#h';
+// spec.js
+describe('Protractor Demo App', function() {
+  it('should have a title', function() {
+    browser.get('http://juliemr.github.io/protractor-demo/');
 
-
-it("should show fake browser info on load", function() {
-  expect(addressBar.getAttribute('value')).toBe(url);
-
-  expect(element(by.binding('$location.protocol()')).getText()).toBe('http');
-  expect(element(by.binding('$location.host()')).getText()).toBe('www.example.com');
-  expect(element(by.binding('$location.port()')).getText()).toBe('80');
-  expect(element(by.binding('$location.path()')).getText()).toBe('/path');
-  expect(element(by.binding('$location.search()')).getText()).toBe('{"a":"b"}');
-  expect(element(by.binding('$location.hash()')).getText()).toBe('h');
-
+    expect(browser.getTitle()).toEqual('Super Calculator');
+  });
 });
 
-it("should change $location accordingly", function() {
-  var navigation = element.all(by.css("#navigation a"));
-
-  navigation.get(0).click();
-
-  expect(addressBar.getAttribute('value')).toBe("http://www.example.com/base/first?a=b");
-
-  expect(element(by.binding('$location.protocol()')).getText()).toBe('http');
-  expect(element(by.binding('$location.host()')).getText()).toBe('www.example.com');
-  expect(element(by.binding('$location.port()')).getText()).toBe('80');
-  expect(element(by.binding('$location.path()')).getText()).toBe('/first');
-  expect(element(by.binding('$location.search()')).getText()).toBe('{"a":"b"}');
-  expect(element(by.binding('$location.hash()')).getText()).toBe('');
-
-
-  navigation.get(1).click();
-
-  expect(addressBar.getAttribute('value')).toBe("http://www.example.com/base/sec/ond?flag#hash");
-
-  expect(element(by.binding('$location.protocol()')).getText()).toBe('http');
-  expect(element(by.binding('$location.host()')).getText()).toBe('www.example.com');
-  expect(element(by.binding('$location.port()')).getText()).toBe('80');
-  expect(element(by.binding('$location.path()')).getText()).toBe('/sec/ond');
-  expect(element(by.binding('$location.search()')).getText()).toBe('{"flag":true}');
-  expect(element(by.binding('$location.hash()')).getText()).toBe('hash');
-});
-
-/*
-Copyright 2017 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
