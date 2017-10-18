@@ -171,6 +171,13 @@ app.controller('PostsCtrl', [
   'post',
   'auth',
   function($scope, posts, post, auth) {
+    $scope.hideForm = true;
+    $scope.showForm = function(){
+      if(auth.isLoggedIn()){
+        $scope.hideButton = true;
+        $scope.hideForm = false;
+      }
+    };
     $scope.isLoggedIn = auth.isLoggedIn;
     $scope.post = post;
     $scope.addComment = function() {
@@ -181,6 +188,8 @@ app.controller('PostsCtrl', [
         $scope.post.comments.push(comment);
       });
       $scope.body = '';
+      $scope.hideButton = false;
+      $scope.hideForm = true;
     };
     $scope.incrementUpvotes = function(comment) {
       posts.upvoteComment(post, comment);
@@ -194,6 +203,13 @@ app.controller('MainCtrl', [
   'posts',
   'auth',
   function($scope, posts, auth) {
+    $scope.hideForm = true;
+    $scope.showForm = function(){
+      if(auth.isLoggedIn()){
+        $scope.hideButton = true;
+        $scope.hideForm = false;
+      }
+    };
     $scope.isLoggedIn = auth.isLoggedIn;
     $scope.posts = posts.posts;
     $scope.addPost = function(){
@@ -204,6 +220,8 @@ app.controller('MainCtrl', [
       });
       $scope.title = '';
       $scope.link = '';
+      $scope.hideButton = false;
+      $scope.hideForm = true;
     };
     $scope.incrementUpvotes = function(post) {
       posts.upvote(post);
